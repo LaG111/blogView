@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Writer from '../views/Writer.vue'
+import Secret from '../views/Secret.vue'
+import Article from '../views/Article.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,11 +20,28 @@ const routes = [
     // 包含换页搜索功能
   },
   {
+    path: '/',
+    name: 'Home',
+    component: Home,
+    // 包含换页搜索功能
+  },
+  {
     path: '/writer',
     name: 'Writer',
     component: Writer
     // 写文章页面
   },
+  {
+    path: '/article',
+    name: 'Article',
+    component: Article,
+    // 包含换页搜索功能
+  },
+  {
+    path: '/mySSSecret',
+    name: 'secret',
+    component:Secret
+  }
 
 ]
 
