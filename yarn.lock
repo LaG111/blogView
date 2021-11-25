@@ -2503,7 +2503,7 @@
   dependencies:
     "delayed-stream" "~1.0.0"
 
-"commander@^2.18.0", "commander@^2.20.0":
+"commander@^2.18.0", "commander@^2.20.0", "commander@^2.20.3":
   "integrity" "sha1-/UhehMA+tIgcIHIrpIA16FMa6zM="
   "resolved" "https://registry.nlark.com/commander/download/commander-2.20.3.tgz"
   "version" "2.20.3"
@@ -2850,6 +2850,11 @@
   "integrity" "sha1-N3QZGZA7hoVl4cCep0dEXNGJg+4="
   "resolved" "https://registry.nlark.com/cssesc/download/cssesc-3.0.0.tgz"
   "version" "3.0.0"
+
+"cssfilter@0.0.10":
+  "integrity" "sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4="
+  "resolved" "https://registry.npmjs.org/cssfilter/-/cssfilter-0.0.10.tgz"
+  "version" "0.0.10"
 
 "cssnano-preset-default@^4.0.0", "cssnano-preset-default@^4.0.8":
   "integrity" "sha1-kgYisfwelaNOiDggPxOXpQTy0/8="
@@ -8222,6 +8227,14 @@
   "version" "6.2.2"
   dependencies:
     "async-limiter" "~1.0.0"
+
+"xss@^1.0.10":
+  "integrity" "sha512-qmoqrRksmzqSKvgqzN0055UFWY7OKx1/9JWeRswwEVX9fCG5jcYRxa/A2DHcmZX6VJvjzHRQ2STeeVcQkrmLSw=="
+  "resolved" "https://registry.npmjs.org/xss/-/xss-1.0.10.tgz"
+  "version" "1.0.10"
+  dependencies:
+    "commander" "^2.20.3"
+    "cssfilter" "0.0.10"
 
 "xtend@^4.0.0", "xtend@~4.0.1":
   "integrity" "sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q="

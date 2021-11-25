@@ -1,3 +1,5 @@
+// 添把信息添加到vuex，msg组件会自动读取并显示
+
 import store from "@/store"
 
 export default {
@@ -40,4 +42,7 @@ export default {
             light: data.light ? data.light : false
         })
     },
+    msgClose(index){
+        store.commit('messageDel',index)
+    }
 }

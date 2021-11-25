@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Writer from '../views/Writer.vue'
 import Secret from '../views/Secret.vue'
 import Article from '../views/Article.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -38,9 +40,19 @@ const routes = [
     // 包含换页搜索功能
   },
   {
-    path: '/mySSSecret',
+    path: '/secret',
     name: 'secret',
     component:Secret
+  },
+  {
+    path:'/login',
+    name:'login',
+    component:Login
+  },
+  {
+    path:'/register',
+    name:'Register',
+    component:Register
   }
 
 ]

@@ -39,17 +39,5 @@ export default {
         content:""
       }
   },
-  props: {
-  },
-  methods: {
-      openDialog(content){
-        this.content = content
-        this.dialog = true
-      },
-      closeDialog(){
-          this.dialog=false
-          this.content = ' '
-      }
-  }
 }
 </script>

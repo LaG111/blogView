@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <h3>wangEditor with vue</h3>
-    <div id="demo1"></div>
+    <div id="edit"></div>
     <button type="button" class="btn" @click="getEditorData">获取当前内容</button>
     <h3>内容预览</h3>
-    <textarea name="" id="" cols="170" rows="20" readonly v-model="editorData"></textarea>
+    <textarea  name="" id="" cols="170" rows="20" readonly v-html="editorData"></textarea>
+    <div v-html="editorData"></div>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    const editor = new wangEditor(`#demo1`)
+    const editor = new wangEditor(`#edit`)
     // 配置 onchange 回调函数，将数据同步到 vue 中
     editor.config.onchange = (newHtml) => {
        this.editorData = newHtml
@@ -43,11 +44,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
   .home {
     width: 1200px;
     margin: auto;
-    position: relative;
+    position: relative;}
+
     .btn {
       position: absolute;
       right: 0;
@@ -58,5 +60,5 @@ export default {
     h3 {
       margin: 30px 0 15px;
     }
-  }
+  
 </style>

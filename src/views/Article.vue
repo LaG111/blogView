@@ -1,32 +1,34 @@
 <template>
-    <v-app class="Aricle">
-        <AppBar title=""></AppBar>
+    <div class="Aricle">
         <v-card flat height="80px"></v-card>
         <v-col>
             <v-row justify="center" align="center">
-                <v-card flat width="1000px">
-                    <v-card-title  class="text-h4 font-weight-bold" >
+                <v-card  width="1000px">
+                    <v-card-title  class="teal--text text-h4 font-weight-bold " >
                         {{this.articleData.title}}
                     </v-card-title>
-                    <v-card-text v-html="this.articleData.content" class=" text-body-2">
-                    </v-card-text>
+                    <v-card-text class="mb-6">
+                        {{this.articleData.intro}}
+                        <v-divider></v-divider>
+                        Writer:{{this.articleData.writer}}
+
+                    </v-card-text >
+                    <div id="article" v-html="this.articleData.content" class="px-4">
+                    </div>
                 </v-card>  
             </v-row>
         </v-col>
-
-    </v-app>
-    
-
+    </div>
 </template>
 <script>
-import AppBar from '@/components/AppBar.vue'
 export default {
     data(){
         return{
-            articleData:{}
+            articleData:{},
+            loading:true
         }
     },
-    created(){
+    mounted(){
         this.getArticle()
     },
     methods:{
@@ -34,11 +36,11 @@ export default {
         console.log('当前文章ID：' + this.$route.query.id)
         this.$service.article
             .getArticleInfo(this.$route.query.id)
-            .then(res => {
+            .then(ret => {
+                let res=ret.data
                 console.log(res)
-                if (res.data.code === 200) {
-                    this.articleData = res.data.data.article
-                    console.log(this.articleData.content)
+                if (res.code === 200) {
+                    this.articleData = res.data.article
                     // this.comments = this.topicData.article.comments
                     // if (this.topicData.article.img) {
                     // this.showArticleimg = true
@@ -52,10 +54,19 @@ export default {
         },
     },
     components:{
-        AppBar
     }
 }
 </script>
 
 <style scoped>
+#article >>> blockquote {
+    display: block; 
+    border-left: 8px solid #d0e5f2;
+    padding: 5px 10px;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 100%;
+    background-color: #f1f1f1;
+}
+
 </style>

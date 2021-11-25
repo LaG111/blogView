@@ -1,11 +1,6 @@
 <template>
-  <v-app class="home">    
-    <AppBar title="首页">
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    </AppBar>
-    <v-sheet height = "1000px" >
+  <div>    
+    <v-sheet>
         <v-card tile flat height ="200px"></v-card>
         <v-col>
           <ArticleCard
@@ -18,12 +13,11 @@
           </ArticleCard>
         </v-col>
     </v-sheet>
-  </v-app>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AppBar from '@/components/AppBar.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 export default {
   data(){
@@ -58,14 +52,9 @@ export default {
         })
       }
     },
-    gotoArticle(){
-
-      router.push( {path: '/article', query: {id: this.article.topic_id }})
-    },
   },
   name: 'Home',
   components: {
-    AppBar,
     ArticleCard
   }
 }

@@ -1,10 +1,5 @@
 <template>
-  <v-app class="Writer" >
-    <AppBar title="写作"></AppBar>
-    <v-main>
-      <Dialog v-bind:content="dialogContent" ref="Dia">
-      </Dialog>
-      
+  <div class="Writer" >
       <v-row>
         <v-col>
     `     <v-card class="writer-sidebar " width="300px" flat>
@@ -26,7 +21,7 @@
         </v-col>
 
         <v-col>
-          <v-card class="editor" width="800px" flat >
+          <v-card class="editor" width="1100px" flat >
           <v-form  >
             <v-text-field
                   v-model="title"
@@ -41,20 +36,13 @@
             ></v-text-field>
 
             <v-label  class="font-weight-bold">正文</v-label>
-              <vue-html5-editor
-              :content="inputfield.content.placeholder"
-              :z-index="1"
-              :height= "800"
-              :auto-height= "true"
-              v-if="inputfield.content"
-              @change="updateData"
-            ></vue-html5-editor>
+            <Editor ref="editor"></Editor>
           </v-form>
         </v-card>`
         </v-col>
             
         <v-col >
-            <v-row   >
+            <v-row>
               <v-btn 
               class="success tile mx-auto mt-12"
               large
@@ -83,7 +71,7 @@
             </v-row>
             <v-row class="" >
               <v-btn
-              class="gray tile mx-auto mt-16" 
+              class="gray tile mx-auto mt-10" 
               large
               :loading="loadingPreview"
               :disabled="loadingPreview"
@@ -98,56 +86,63 @@
         </v-col>
         
       </v-row>
-    </v-main>
-  </v-app>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AppBar from '@/components/AppBar.vue'
 import Dialog from '@/components/Dialog.vue'
-import axios from 'axios'
+import Editor from '@/components/Editor.vue'
+// import xss from 'xss'
 export default {
   name: 'Writer',
   data(){
     return {
-      loader: null,
       loadingUpload: false,
       loadingPreview:false,
       loadingSave: false,
       title: '',
-      // 标题
       intro: '',
-      // 简介
-      // images: [],
-      // 配图，可以有多张
       content:'',
-      // 内容
-      dialogContent:''
     }
   },
   computed:{
-    // 设置form的placeholder
-    inputfield(){
-      return{
-        content:{
-        }
-      }
-    },
+
+  },
+  mounted(){
+    // 设置过滤防止xss攻击
+    // 不过滤css，因为富文本编辑器内有很多
+//////TMD搞不来以后再搞
+    // console.log(xss.whiteList)
+    // const whiteList = xss.whiteList
+    // whiteList.font = []
+    // const options = {
+    //   whiteList : whiteList,
+    //   css : false
+    // };
+    // console.log(options)
+    // this.myxss = new xss.FilterXSS(options) ;
   },
   methods:{
-    updateData(e) {
-        console.log(this)
-        this.content=e
+    updateContent(){
+      // this.content = this.myxss.process(this.$refs.editor.editorData)
+      this.content = this.$refs.editor.editorData
+      console.log(this.content)
     },
     upload () {
+      this.updateContent()
       this.$service.article.postArticle({
         title: this.title,
         intro: this.intro,
         content: this.content
-      }).then(res => {
+      }).then(ret => {
+        let res=ret.data
+        console.log(res)
         if (res.code === 200) {
-          this.$refs.Dia.openDialog('点击前往文章')
+          this.$msg.success({message:'文章发布成功',time:1000})
+          setTimeout(()=>{
+            this.$router.push({path:'/Article',query:{id:res.id}})
+          },1000)
         }
       })
     },
@@ -171,8 +166,8 @@ export default {
 
   },
   components: {
-    AppBar,
     Dialog,
+    Editor
   }
 }
 </script>

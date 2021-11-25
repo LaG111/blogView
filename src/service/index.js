@@ -1,4 +1,4 @@
-// import * as user from './user'
+import * as user from './user'
 import * as article from './article'
 // import * as home from './home'
 
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 axios.defaults.baseURL = baseUrl
 
 export default {
-//   user,
+  user,
   article,
 //   home
   // 这里记得补上

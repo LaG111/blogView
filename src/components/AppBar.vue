@@ -2,12 +2,13 @@
     <v-app-bar
       app
       absolute
-      color="black"
+      color="teal darken-3
+"
       dark
     >
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <router-link to="test">
+      <router-link to="secret">
         <v-btn icon>
             T
         </v-btn>
@@ -23,12 +24,7 @@
         </v-btn>
       </router-link>
       <Avatar/>
-
-
-
-
     </v-app-bar>
-
 </template>
 
 <script>

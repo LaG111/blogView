@@ -2,7 +2,6 @@
     <v-card 
     class="mx-auto mt-16 px-16"
     width="800px"
-    max-width="900px"
     elevation="6"
     @click="gotoActicle"
     >
