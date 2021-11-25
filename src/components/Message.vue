@@ -38,18 +38,6 @@
   </v-dialog>
 </div>
 </template>
-<style>
-	.message {
-	  left: 50%;
-	  z-index: 9999;
-	  display: flex;
-	  position: fixed;
-	  min-width: 300px;
-	  max-width: 800px;
-	  flex-direction: column;
-	  transform: translateX(-50%);
-	}
-</style>
 <script>
 export default {
   name:"Message",

@@ -19,6 +19,7 @@ function getCookie(cName) {
 
 // 这里获取token逻辑
 let token =  localStorage.getItem('token')
+console.log(token)
 // TODO:提交前注释此行代码，调试时打开
 axios.interceptors.request.use(config => {
   if(token) {

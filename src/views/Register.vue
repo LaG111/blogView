@@ -33,7 +33,8 @@
                             <v-text-field
                                 v-model="passwordConfirm"
                                 :rules="[rules.required,rules.confirmRule]"
-                                label="PasswordConfirm"
+                                label= " PasswordConfirm"
+                                type = 'password'
                                 counter
                             ></v-text-field>
                         </v-row>
@@ -72,8 +73,8 @@ export default{
                 required: value => !!value || 'Required.',
                 min: v => v.length >= 8 || 'Min 8 characters',
                 usernameRule: v=> isvalidUsername(v) ||'用户名需要是数字、字母、下划线的组合，字母至少存在一位',
-                passwordRule: v=> isvalidPassword(v) ||'密码需要是字母开头的8-18位字符',
-                confirmRule:  v=> v === this.password||'密码重复不正确' 
+                passwordRule: v=> isvalidPassword(v) ||'密码需要是8-18位字符',
+                confirmRule:  v=> (v===this.password) ||'密码重复不正确' 
             },
         }
     },

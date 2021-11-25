@@ -1,7 +1,6 @@
 <template>
     <v-app-bar
       app
-      absolute
       color="teal darken-3
 "
       dark

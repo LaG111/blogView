@@ -4,6 +4,9 @@ import axios from 'axios'
 export const getArticleList = () => {
   return axios.get('/api/article')
 }
+export const getMyArticleList = (params) => {
+  return axios.get(`/api/Article/${params}`)
+}
 
 // 发布文章
 export const postArticle = (param) => {

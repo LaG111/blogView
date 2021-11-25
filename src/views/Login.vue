@@ -60,7 +60,7 @@ export default{
                 required: value => !!value || 'Required.',
                 min: v => v.length >= 8 || 'Min 8 characters',
                 usernameRule: v=> isvalidUsername(v) ||'用户名需要是数字、字母、下划线的组合，字母至少存在一位',
-                passwordRule: v=> isvalidPassword(v) ||'密码需要是字母开头的8-18位字符'
+                passwordRule: v=> isvalidPassword(v) ||'密码需要是8-18位字符'
             },
         }
     },
@@ -77,15 +77,10 @@ export default{
                 console.log(res)
                 if (res.code === 200) {
                     this.$msg.success({ message: res.msg , time : 1000 })
-                    console.log('token为' + res.data['token'])
                     window.localStorage.setItem('token', res.data['token'])
-                    const test = window.localStorage.getItem('token')
-                    console.log('local已储存')
-                    console.log(test)
                     this.addUserInfo()
                         setTimeout(() => {
                         this.$router.push('/home')
-                        
                     }, 1000)
                 }
                 else if(res.code === 201)
@@ -96,7 +91,6 @@ export default{
             })
             .catch(err => {
                 console.log(err)
-                this.$msg.info({ message: err.body.msg })
             })
         },
         addUserInfo () {

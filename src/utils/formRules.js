@@ -1,5 +1,5 @@
 export function isvalidPassword(str) {
-    const reg = /^[a-zA-Z]\w{8,18}$/;
+    const reg = /^[a-zA-Z0-9]\w{8,18}$/;
     return reg.test(str);
   }
   

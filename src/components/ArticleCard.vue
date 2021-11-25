@@ -7,6 +7,12 @@
     >
         <v-card-title>
             {{this.articleTitle}}
+            <v-spacer></v-spacer>
+            <v-btn icon v-if="showDelBtn"> 
+                <v-icon>
+                    x
+                </v-icon>
+            </v-btn>
         </v-card-title>
         <v-card-text>
             {{this.articleIntro}}
@@ -24,6 +30,13 @@ export default {
     methods:{
         gotoActicle(){
             this.$router.push({path:'/Article',query:{id:this.articleId}})
+        }
+    },
+    computed:{
+        showDelBtn(){
+            console.log(this.$store.state.userinfo.username)
+            return true
+            return (this.$store.state.userinfo.username ==="LunaticRed")
         }
     }
 }

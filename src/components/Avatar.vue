@@ -47,12 +47,22 @@
             >
               Edit Account
             </v-btn>
+              <v-divider class="my-3"></v-divider>
+            <v-btn
+              depressed
+              rounded
+              text
+              @click="gotoMyArticle"
+            >
+              My Article
+            </v-btn>
             <v-divider class="my-3"></v-divider>
             <v-btn
               depressed
               rounded
               text
-              @click="dialog = true"
+              color='error'
+              @click="logout"
             >
               Logout
             </v-btn>
@@ -60,43 +70,6 @@
         </v-list-item-content>
       </v-card>
     </v-menu>
-      
-    <div class="text-center ">
-      <v-dialog
-      v-model="dialog"
-      width="500"
-      persistent
-      >
-      <div
-      class="mb-n4">
-        <v-card 
-        >
-          <!-- <v-card-title class="text-h5 primary lighten-2">
-            提示
-          </v-card-title> -->
-
-          <v-card-text>
-            确认取消登录
-          </v-card-text>
-
-
-          <v-card-actions>
-            <v-btn flat class=“teal--text” @click="logout">
-              确认
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn
-              flat
-              @click="dialog=false"
-            >
-              取消
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
-        
-      </v-dialog>
-    </div>
   </div>
 
 
@@ -109,7 +82,6 @@ export default {
     props: {
     },
     data: () => ({
-      dialog:false
     }),
     methods:{
       gotoLogin(){
