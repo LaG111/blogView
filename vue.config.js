@@ -2,14 +2,11 @@ module.exports = {
   runtimeCompiler: true,
   devServer:{
     proxy:{
-      '/blog':{
-        target:'http://127.0.0.1:3000',
+      '/api':{
+        target:'https://qcgkxh.app.cloudendpoint.cn',
         secure:false,
         ws:true,
         changeOrigin:true,
-        pathRewrite:{
-          '^/blog':''
-        }
       }
     }
   }

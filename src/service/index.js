@@ -5,15 +5,15 @@ import * as setting from './setting'
 
 
 import axios from 'axios'
-let baseUrl = '/blog'
-if (process.env.NODE_ENV === 'development') {
-  baseUrl = '/blog'
-} else if (process.env.NODE_ENV === 'production') {
-  baseUrl = 'https://qcjqle.app.cloudendpoint.cn'
-} else {
-  baseUrl = 'https://qcjqle.app.cloudendpoint.cn'
-}
-axios.defaults.baseURL = baseUrl
+// let baseUrl = '/blog'
+// if (process.env.NODE_ENV === 'development') {
+//   baseUrl = '/blog'
+// } else if (process.env.NODE_ENV === 'production') {
+//   baseUrl = 'https://qcjqle.app.cloudendpoint.cn'
+// } else {
+//   baseUrl = 'https://qcjqle.app.cloudendpoint.cn'
+// }
+// axios.defaults.baseURL = baseUrl
 
 export default {
   user,

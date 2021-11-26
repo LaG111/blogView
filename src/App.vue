@@ -20,7 +20,6 @@ export default {
   methods:{
     async getSetting(){
       let ret = await this.$service.setting.getSetting()
-      console.log(ret)
       this.$store.commit('getSetting', ret.data.data.setting)
     }
   },

@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+import createPersistedState from "vuex-persistedstate"
+ 
+
 Vue.use(Vuex)
 	export default new Vuex.Store({
+	plugins: [createPersistedState()],
 	  state: {
 	    msgPool: [],
 		userinfo: {
@@ -11,7 +16,7 @@ Vue.use(Vuex)
 			isSuper: false
 		},
 		setting:{
-
+			superUserList:['Admin','LunaticRed']
 		},
 	  },
 	  mutations: {
@@ -34,7 +39,7 @@ Vue.use(Vuex)
 		login (state, userinfo) {
 			state.userinfo.username = userinfo.username
 			state.userinfo.isLogin = true
-			if(state.setting.superUser.indexOf(username) !== -1){
+			if(state.setting.superUserList.indexOf(userinfo.username) !== -1){
 				state.userinfo.isSuper= true
 			}
 			// state.userinfo.nickname = userinfo.nickname

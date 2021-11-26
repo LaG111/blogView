@@ -3,12 +3,12 @@
     <div id="edit" ></div>
     <!-- <button type="button" class="btn" @click="getEditorData">获取当前内容</button>
     <h3>内容预览</h3> -->
-    实际
+    <!-- 实际
     <v-card >
         <textarea name="" id="" cols="30" rows="10" v-model="editorData"></textarea>
     </v-card>
     显示
-    <v-card v-html="editorData" class="reset"></v-card>
+    <v-card v-html="editorData" class="reset"></v-card> -->
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
     const editor = new wangEditor(`#edit`)
     //编辑器的功能设置 
     editor.config.uploadImgShowBase64 = true
-    editor.config.zIndex = 5
+    editor.config.zIndex = 2
     editor.config.menus = [
         'bold',
         'fontSize',
@@ -62,11 +62,10 @@ export default {
     this.editor = editor
   },
   methods: {
-    // getEditorData() {
-    //   // 通过代码获取编辑器内容
-    //   let data = this.editor.txt.html()
-    //   alert(data)
-    // }
+    initEditorData(data) {
+      // 通过代码获取编辑器内容
+      this.editor.txt.append(data)
+    }
   },
   beforeDestroy() {
     // 调用销毁 API 对当前编辑器实例进行销毁

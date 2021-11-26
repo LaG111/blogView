@@ -75,15 +75,13 @@ export default{
             .then(ret => {
                 let res = ret.data
                 if (res.code === 200) {
-                    console.log(res)
                     this.$msg.success({ message: res.msg , time : 1000 })
-                    console.log(res.data['token'])
                     window.localStorage.removeItem('token')
                     window.localStorage.setItem('token', res.data['token'])
                     this.addUserInfo()
-                    //     setTimeout(() => {
-                    //     this.$router.push('/home')
-                    // }, 1000)
+                        setTimeout(() => {
+                        this.$router.push('/home')
+                    }, 1000)
                 }
                 else if(res.code === 201)
                     this.$msg.info(res.msg)

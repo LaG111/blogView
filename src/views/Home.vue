@@ -6,10 +6,7 @@
           <ArticleCard
           v-for="item in articleCardList"
           :key = item.id
-          :articleId = item.id
-          :articleTitle= item.title
-          :articleIntro = item.intro
-          :control = isSuper
+          :article = item
           >
           </ArticleCard>
         </v-col>
@@ -36,24 +33,19 @@ export default {
   },
   methods:{
     async getarticleCardList () {
-      let data = await this.$service.article.getArticleList()
-      console.log(data)
-      if (data.data.code === 200) {
-        this.articleCardList = data.data.data.map(item => {
-          // const date = new Date(item.article.datetime)
-          // let nowtime = this.$moment(date).format('YYYY-MM-DD HH:mm:ss')
+      let ret = await this.$service.article.getArticleList()
+      let res =ret.data
+      console.log(res)
+      if (res.code === 200) {
+        this.articleCardList = res.data.map(item => {
           // let time = this.setTime(nowtime)
           return {
-            // time: time,
             title: item.article.title,
             id: item.article.id,
-            // user: item.author.username,
             intro: item.article.intro,
-            // image: '',
-            // viewcount: item.article.data.view,
-            // commentcount: item.article.data.comment,
-            // nickname: '匿名者',
-            // userimage: item.author.avatar
+            abstract:item.article.abstract,
+            writer:item.article.writer,
+            date: item.article.datetime
           }
         })
       }

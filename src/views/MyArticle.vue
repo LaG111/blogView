@@ -6,9 +6,7 @@
           <ArticleCard
           v-for="item in articleCardList"
           :key = item.id
-          :articleId = item.id
-          :articleTitle= item.title
-          :articleIntro = item.intro
+          :article = item
           :control = true
           >
           </ArticleCard>
@@ -34,12 +32,15 @@ export default {
       let ret = await this.$service.article.getMyArticleList(this.$store.state.userinfo.username)
       console.log(ret)
       let res= ret.data
-      if (res.data.code === 200) {
+      if (res.code === 200) {
         this.articleCardList = res.data.map(item => {
           return {
             title: item.article.title,
             id: item.article.id,
             intro: item.article.intro,
+            abstract:item.article.abstract,
+            writer:item.article.writer,
+            date: item.article.datetime
           }
         })
       }
