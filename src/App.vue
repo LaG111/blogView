@@ -14,6 +14,16 @@ import AppBar from '@/components/AppBar.vue'
 import Dialog from '@/components/Dialog.vue'
 
 export default {
+  mounted(){
+    this.getSetting()
+  },
+  methods:{
+    async getSetting(){
+      let ret = await this.$service.setting.getSetting()
+      console.log(ret)
+      this.$store.commit('getSetting', ret.data.data.setting)
+    }
+  },
   components:{
     Message,
     AppBar,

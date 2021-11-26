@@ -9,7 +9,7 @@
           :articleId = item.id
           :articleTitle= item.title
           :articleIntro = item.intro
-          :private = true
+          :control = true
           >
           </ArticleCard>
         </v-col>
@@ -26,7 +26,7 @@ export default {
       articleCardList:[]
     }
   },
-  created(){
+  mounted(){
     this.getarticleCardList()
   },
   methods:{

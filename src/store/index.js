@@ -8,7 +8,11 @@ Vue.use(Vuex)
 			isLogin : false,
 			username: '',
 			// nickname: '',
-		  },
+			isSuper: false
+		},
+		setting:{
+
+		},
 	  },
 	  mutations: {
 	    message(state,data) {
@@ -30,12 +34,19 @@ Vue.use(Vuex)
 		login (state, userinfo) {
 			state.userinfo.username = userinfo.username
 			state.userinfo.isLogin = true
+			if(state.setting.superUser.indexOf(username) !== -1){
+				state.userinfo.isSuper= true
+			}
 			// state.userinfo.nickname = userinfo.nickname
 		},
 		logout (state){
 			state.userinfo.username = ''
 			state.userinfo.isLogin = false
+		},
+		getSetting(state,setting){
+			state.setting = setting
 		}
+
 	  },
 	  actions: {
 	  },

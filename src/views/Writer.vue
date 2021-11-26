@@ -91,7 +91,6 @@
 
 <script>
 // @ is an alias to /src
-import Dialog from '@/components/Dialog.vue'
 import Editor from '@/components/Editor.vue'
 // import xss from 'xss'
 export default {
@@ -166,7 +165,6 @@ export default {
 
   },
   components: {
-    Dialog,
     Editor
   }
 }

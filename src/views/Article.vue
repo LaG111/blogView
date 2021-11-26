@@ -33,7 +33,6 @@ export default {
     },
     methods:{
         getArticle () {
-        console.log('当前文章ID：' + this.$route.query.id)
         this.$service.article
             .getArticleInfo(this.$route.query.id)
             .then(ret => {

@@ -23,6 +23,11 @@ export const postUploadImg = (param) => {
 export const getArticleInfo = (params) => {
   return axios.get(`/api/article/${params}`)
 }
+
+export const deleteArticle = (param) => {
+  console.log(param)
+  return axios.delete(`/api/article/deleteArticle/${param}`)
+}
 // 浏览
 export const postView = (params) => {
   return axios.post(`/api/view/`, params)

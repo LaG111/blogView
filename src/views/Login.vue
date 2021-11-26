@@ -73,15 +73,17 @@ export default{
                 password:this.password
             })
             .then(ret => {
-                let res =ret.data
-                console.log(res)
+                let res = ret.data
                 if (res.code === 200) {
+                    console.log(res)
                     this.$msg.success({ message: res.msg , time : 1000 })
+                    console.log(res.data['token'])
+                    window.localStorage.removeItem('token')
                     window.localStorage.setItem('token', res.data['token'])
                     this.addUserInfo()
-                        setTimeout(() => {
-                        this.$router.push('/home')
-                    }, 1000)
+                    //     setTimeout(() => {
+                    //     this.$router.push('/home')
+                    // }, 1000)
                 }
                 else if(res.code === 201)
                     this.$msg.info(res.msg)
@@ -94,43 +96,17 @@ export default{
             })
         },
         addUserInfo () {
-        console.log('开始存储用户信息')
-        this.$service.user
-            .getInfo()
-            .then(ret => {
-            let res = ret.data 
-            console.log(res)
+        this.$service.user.getInfo().then(ret => {
+            let res = ret.data
             if (res.code === 200) {
-                // 将用户信息保存至store中
-                // console.log('开始存储信息')
-                // console.log(res.data['userInfo'])
                 this.$store.commit('login', res.data['userInfo'])
             } else {
                 this.$msg.error('获取用户信息失败')
             }
             })
             .catch(err => {
-            console.log(err)
-            this.$msg.info(err.body.msg )
+            this.$msg.info(err)
             })
-        // console.log('store已储存' + this.$store.state.userinfo)
-
-        // this.$service.login
-        //   .getUserInfo(token)
-        //   .then(res => {
-        //     // 如果获取用户信息成功
-        //     if (res.data.code === 200) {
-        //       // 将用户信息保存至store中
-        //       store.commit('login', res.data.data)
-        //       console.log(store.state.userinfo)
-        //       store.state.pageControl.UIloadDone = true
-        //     }
-        //     // 用户信息加载完成,并将token存入localstorage
-        //     window.localStorage.setItem('token', token)
-        //   })
-        //   .catch(err => {
-        //     console.log(err)
-        //   })
         },
 
         validate () {

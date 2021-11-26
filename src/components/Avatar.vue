@@ -94,8 +94,7 @@ export default {
         this.$router.push({path:'/MyArticle'})
       },
       logout(){
-        localStorage.removeItem('token');
-
+        window.localStorage.removeItem('token');
         this.$store.commit('logout')
       }
     },

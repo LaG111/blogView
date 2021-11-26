@@ -9,6 +9,7 @@
           :articleId = item.id
           :articleTitle= item.title
           :articleIntro = item.intro
+          :control = isSuper
           >
           </ArticleCard>
         </v-col>
@@ -27,6 +28,11 @@ export default {
   },
   created(){
     this.getarticleCardList()
+  },
+  computed:{
+    isSuper(){
+      return this.$store.state.userinfo.isSuper
+    }
   },
   methods:{
     async getarticleCardList () {
