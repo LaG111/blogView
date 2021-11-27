@@ -60,18 +60,27 @@ export default {
     // 创建编辑器
     editor.create()
     this.editor = editor
+
   },
   methods: {
     initEditorData(data) {
       // 通过代码获取编辑器内容
       this.editor.txt.append(data)
+    },
+    getText(){
+      return this.editor.txt.text()
     }
   },
+
+
+
   beforeDestroy() {
     // 调用销毁 API 对当前编辑器实例进行销毁
+    console.log('destroy')
     this.editor.destroy()
     this.editor = null
-  }
+  },
+  
 }
 </script>
 

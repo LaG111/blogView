@@ -22,7 +22,7 @@
         </v-col>
 
         <v-col>
-          <v-card class="editor" width="1100px" flat >
+          <v-card  width="1100px" flat >
           <v-form  >
             <v-text-field
                   v-model="title"
@@ -106,7 +106,7 @@ export default {
       intro: '',
       content:'',
       writer:'',
-      mode:''
+      mode:'',
     }
   },
   computed:{
@@ -148,8 +148,6 @@ export default {
           .getArticleInfo(this.$route.query.articleId)
           .then(ret => {
               let res=ret.data
-              console.log('res')
-              console.log(res)
               if (res.code === 200) {
                   this.title = res.data.article.title
                   this.intro = res.data.article.intro
@@ -166,12 +164,13 @@ export default {
         this.editUpload()
       }
     },
-    editUpload(){
-        this.$service.article.editArticle({
+    async editUpload(){
+        await this.$service.article.editArticle({
           id: this.$route.query.articleId,
           title: this.title,
           intro: this.intro,
           content: this.$refs.editor.editorData,
+          abstract: this.getAbstract()
           // 根据id找到文章，不会更新writer
           // writer: this.writer
         }).then(ret => {
@@ -186,19 +185,18 @@ export default {
         })
 
     },
-    normalUpload(){
-        this.$service.article.postArticle({
+    async normalUpload(){
+        await this.$service.article.postArticle({
           title: this.title,
           intro: this.intro,
           content: this.$refs.editor.editorData,
+          abstract: this.getAbstract()
           // writer直接从token中读取
           // writer: this.writer
         }).then(ret => {
           let res=ret.data
           if (res.code === 200) {
             this.$msg.success({message:'文章发布成功',time:1000})
-            console.log('?????')
-            console.log(this.$route.query.articleId)
             setTimeout(()=>{
               this.$router.push({path:'/Article',query:{id:res.id}})
             },1000)
@@ -220,6 +218,7 @@ export default {
       },3000)
     },
     preview() {
+      this.$msg.info(this.getAbstract())
     },
     validate(){
       if(this.title === ''||this.intro === ''||this.$refs.editor.editorData === ''){
@@ -233,7 +232,11 @@ export default {
       }
 
 
-    }
+    },
+
+  getAbstract(){
+    return this.$refs.editor.getText().substring(0,80)+'...'
+  }
 
   },
   watch: {
