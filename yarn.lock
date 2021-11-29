@@ -1870,6 +1870,23 @@
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
+"babel-polyfill@^6.26.0":
+  "integrity" "sha1-N5k3q8Z9eJWXCtxiHyhM2WbPIVM="
+  "resolved" "https://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.26.0.tgz"
+  "version" "6.26.0"
+  dependencies:
+    "babel-runtime" "^6.26.0"
+    "core-js" "^2.5.0"
+    "regenerator-runtime" "^0.10.5"
+
+"babel-runtime@^6.11.6", "babel-runtime@^6.26.0":
+  "integrity" "sha1-llxwWGaOgrVde/4E/yM3vItWR/4="
+  "resolved" "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz"
+  "version" "6.26.0"
+  dependencies:
+    "core-js" "^2.4.0"
+    "regenerator-runtime" "^0.11.0"
+
 "balanced-match@^1.0.0":
   "integrity" "sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4="
   "resolved" "https://registry.nlark.com/balanced-match/download/balanced-match-1.0.2.tgz"
@@ -2184,8 +2201,8 @@
     "unset-value" "^1.0.0"
 
 "cache-loader@^4.1.0":
-  "integrity" "sha1-mUjK41OuwKH8ser9ojAIFuyFOH4="
-  "resolved" "https://registry.npm.taobao.org/cache-loader/download/cache-loader-4.1.0.tgz"
+  "integrity" "sha512-ftOayxve0PwKzBF/GLsZNC9fJBXl8lkZE3TOsjkboHfVHVkL39iUEs1FO07A33mizmci5Dudt38UZrrYXDtbhw=="
+  "resolved" "https://registry.npmjs.org/cache-loader/-/cache-loader-4.1.0.tgz"
   "version" "4.1.0"
   dependencies:
     "buffer-json" "^2.0.0"
@@ -2669,6 +2686,16 @@
   "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.19.1.tgz"
   "version" "3.19.1"
 
+"core-js@^2.4.0":
+  "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
+  "version" "2.6.12"
+
+"core-js@^2.5.0":
+  "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
+  "version" "2.6.12"
+
 "core-js@^3.6.5":
   "integrity" "sha1-hqC7otjsPfhg/vzAeo0Rl3nwFQk="
   "resolved" "https://registry.npmmirror.com/core-js/download/core-js-3.18.3.tgz"
@@ -2724,6 +2751,11 @@
     "ripemd160" "^2.0.0"
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
+
+"cropperjs@^1.5.12":
+  "integrity" "sha512-re7UdjE5UnwdrovyhNzZ6gathI4Rs3KGCBSc8HCIjUo5hO42CtzyblmWLj6QWVw7huHyDMfpKxhiO2II77nhDw=="
+  "resolved" "https://registry.npmjs.org/cropperjs/-/cropperjs-1.5.12.tgz"
+  "version" "1.5.12"
 
 "cross-spawn@^6.0.0":
   "integrity" "sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q="
@@ -5227,6 +5259,11 @@
   "resolved" "https://registry.npm.taobao.org/mime/download/mime-2.5.2.tgz"
   "version" "2.5.2"
 
+"mime@^3.0.0":
+  "integrity" "sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A=="
+  "resolved" "https://registry.npmjs.org/mime/-/mime-3.0.0.tgz"
+  "version" "3.0.0"
+
 "mimic-fn@^1.0.0":
   "integrity" "sha1-ggyGo5M0ZA6ZUWkovQP8qIBX0CI="
   "resolved" "https://registry.npm.taobao.org/mimic-fn/download/mimic-fn-1.2.0.tgz?cache=0&sync_timestamp=1617823583529&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmimic-fn%2Fdownload%2Fmimic-fn-1.2.0.tgz"
@@ -6565,6 +6602,16 @@
   "resolved" "https://registry.nlark.com/regenerate/download/regenerate-1.4.2.tgz"
   "version" "1.4.2"
 
+"regenerator-runtime@^0.10.5":
+  "integrity" "sha1-M2w+/BIgrc7dosn6tntaeVWjNlg="
+  "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz"
+  "version" "0.10.5"
+
+"regenerator-runtime@^0.11.0":
+  "integrity" "sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg=="
+  "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz"
+  "version" "0.11.1"
+
 "regenerator-runtime@^0.13.4":
   "integrity" "sha1-iSV0Kpj/2QgUmI11Zq0wyjsmO1I="
   "resolved" "https://registry.nlark.com/regenerator-runtime/download/regenerator-runtime-0.13.9.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.13.9.tgz"
@@ -7893,6 +7940,14 @@
   "resolved" "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-avatar-cropper@^5.0.2":
+  "integrity" "sha512-cDDK5v3w2ccrd+uMkf+I0EXNtWskLV9orsPEZ2SbX09EPKOR11Og965lJTcrfbOFOARkS6aG3zaoekMgJTJYcA=="
+  "resolved" "https://registry.npmjs.org/vue-avatar-cropper/-/vue-avatar-cropper-5.0.2.tgz"
+  "version" "5.0.2"
+  dependencies:
+    "cropperjs" "^1.5.12"
+    "mime" "^3.0.0"
+
 "vue-axios@^3.3.7":
   "integrity" "sha512-SmNFJIkM5YF4eWfaWfmCmORy52ZP5b8ml9PCTi7C0VsuQK4vwZON6ToNWuyFGCL6U/Fp/pzfIgdLLh/O/qKzYQ=="
   "resolved" "https://registry.npmjs.org/vue-axios/-/vue-axios-3.3.7.tgz"
@@ -7916,6 +7971,13 @@
   "integrity" "sha1-WRAhCoMNjI00eaHx/shHMZKqA7M="
   "resolved" "https://registry.npmjs.org/vue-html5-editor/-/vue-html5-editor-1.1.1.tgz"
   "version" "1.1.1"
+
+"vue-image-crop-upload@^3.0.3":
+  "integrity" "sha512-VeBsU0oI1hXeCvdpnu19DM/r3KTlI8SUXTxsHsU4MhDXR0ahRziiL9tf4FbILGx+gRVNZhGbl32yuM6TiaGNhA=="
+  "resolved" "https://registry.npmjs.org/vue-image-crop-upload/-/vue-image-crop-upload-3.0.3.tgz"
+  "version" "3.0.3"
+  dependencies:
+    "babel-runtime" "^6.11.6"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   "integrity" "sha1-NU8SvAiXlUFYtxWQ+AApVxOneS0="

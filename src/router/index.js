@@ -46,11 +46,11 @@ const routes = [
     component: MyArticle,
     // 包含换页搜索功能
   },
-  // {
-  //   path: '/secret',
-  //   name: 'secret',
-  //   component:Secret
-  // },
+  {
+    path: '/secret',
+    name: 'secret',
+    component:Secret
+  },
   {
     path:'/login',
     name:'login',

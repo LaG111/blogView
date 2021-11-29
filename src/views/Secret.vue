@@ -1,64 +1,59 @@
 <template>
-  <div class="home">
-    <h3>wangEditor with vue</h3>
-    <div id="edit"></div>
-    <button type="button" class="btn" @click="getEditorData">获取当前内容</button>
-    <h3>内容预览</h3>
-    <textarea  name="" id="" cols="170" rows="20" readonly v-html="editorData"></textarea>
-    <div v-html="editorData"></div>
+  <div>
+    <div>
+		<v-avatar>
+			<img/>
+		</v-avatar>
+		<v-btn @click="upload">
+			点击上传图片	
+		</v-btn>
+		<input
+		type="file"
+		name="file"
+		ref ="file"
+		@change="changeImg($event.target.files[0])"
+		accept="image/gif, image/jpeg , image/png"
+		style="display :none"/>
+
+		<v-img :src="img" alt="" style = 'z-index: index 100;'> </v-img>
+    </div>
   </div>
 </template>
 
 <script>
-// 引入 wangEditor
-import wangEditor from 'wangeditor'
-export default {
-  data() {
-    return {
-      editor: null,
-      editorData: ''
-    }
-  },
-  mounted() {
-    const editor = new wangEditor(`#edit`)
-    // 配置 onchange 回调函数，将数据同步到 vue 中
-    editor.config.onchange = (newHtml) => {
-       this.editorData = newHtml
-    }
-    // 创建编辑器
-    editor.create()
-    this.editor = editor
-  },
-  methods: {
-    getEditorData() {
-      // 通过代码获取编辑器内容
-      let data = this.editor.txt.html()
-      alert(data)
-    }
-  },
-  beforeDestroy() {
-    // 调用销毁 API 对当前编辑器实例进行销毁
-    this.editor.destroy()
-    this.editor = null
-  }
+export default{
+	name:'secret',
+	data(){
+		return{
+			img:'',
+			croppedImg: '',
+
+		}
+	},
+	methods:{
+		upload(){
+			//触发原生input元素的点击事件
+           	this.$refs.file.click()
+		},
+		changeImg(file){
+			if(!this.check(file)){
+				this.$msg.info('兄啊，上传的图片作为头像也太大了吧？')
+			}else{
+				let reader  = new FileReader
+				reader.readAsDataURL(file)
+				reader.onload = ()=>{
+					this.img = reader.result    
+				}
+				cropTrigger()
+			}
+		},
+		check(file){
+			if(file.size > 10240000)
+				return false
+		},
+		cropTrigger(){
+			
+		},
+	}
 }
 </script>
-
-<style>
-  .home {
-    width: 1200px;
-    margin: auto;
-    position: relative;}
-
-    .btn {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    h3 {
-      margin: 30px 0 15px;
-    }
-  
-</style>
