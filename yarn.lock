@@ -7962,6 +7962,11 @@
     "semver" "^7.1.2"
     "shelljs" "^0.8.3"
 
+"vue-cropper@^0.5.8":
+  "integrity" "sha512-Xgi/aLQCcNCiBTUdovy/i4LWx0G7fQnAENBpDWA3J4i87Zlk9DJRksXrClsQ6nnaFRfQVkMimij5GEvAMaXdYw=="
+  "resolved" "https://registry.npmjs.org/vue-cropper/-/vue-cropper-0.5.8.tgz"
+  "version" "0.5.8"
+
 "vue-hot-reload-api@^2.3.0":
   "integrity" "sha1-UylVzB6yCKPZkLOp+acFdGV+CPI="
   "resolved" "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz"

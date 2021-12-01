@@ -7,6 +7,7 @@ import Article from '../views/Article.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import MyArticle from '../views/MyArticle.vue'
+import Account from '../views/Account.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -50,6 +51,11 @@ const routes = [
     path: '/secret',
     name: 'secret',
     component:Secret
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component:Account
   },
   {
     path:'/login',

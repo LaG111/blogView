@@ -1,7 +1,10 @@
 
 import axios from 'axios'
-export const uploadAvatar = () => {
-    return axios.post('/api/upload/Avatar')
+export const uploadAvatar = (param) => {
+    let config ={
+        headers:{'Content-Type':'form-data'}
+    } 		
+    return axios.post('/api/upload/Avatar',param,config)
 }
 
 export const getAvatar = () => {

@@ -79,7 +79,7 @@ export default {
     },
     computed:{
         showControl(){
-            return (this.control||this.$store.state.userinfo.isSuper)
+            return (this.$store.state.userinfo.isSuper)
         }
     }
 }

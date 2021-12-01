@@ -12,8 +12,18 @@ export const getMyArticleList = (params) => {
 export const postArticle = (param) => {
   return axios.post('/api/article', param)
 }
-export const editArticle = (param) => {
-  return axios.post('/api/article/editArticle', param)
+
+export const postDraft = (param) => {
+  return axios.post('/api/article', param)
+}
+export const editDraft = (param) => {
+  return axios.post('/api/article', param)
+}
+export const listDraft = () => {
+  return axios.get('/api/article')
+}
+export const getDraft = (param) => {
+  return axios.get(`/api/article/editArticle/${param}`)
 }
                               
 // // 上传图片

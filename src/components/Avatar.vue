@@ -22,7 +22,7 @@
             color="brown"
             size="48"
           >
-            <span class="white--text text-h5">{{ userinfo.username }}</span>
+            <img :src="userinfo.avatar" alt="头像">
           </v-avatar>
         </v-btn>
       </template>
@@ -30,14 +30,11 @@
         <v-list-item-content class="justify-center">
           <div class="mx-auto text-center">
             <v-avatar
-              color="brown"
             >
-              <span class="white--text text-h5">{{  }}</span>
+              <img :src="userinfo.avatar" alt="头像">
             </v-avatar>
             <h3>{{ userinfo.username }}</h3>
-            <p class="text-caption mt-1">
-              {{  }}
-            </p>
+
             <v-divider class="my-3"></v-divider>
             <v-btn
               depressed

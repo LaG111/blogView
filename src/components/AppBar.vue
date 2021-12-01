@@ -19,7 +19,7 @@
         <v-btn icon @click="gotoWriter">
             <v-icon>mdi-pen</v-icon>
         </v-btn>
-      <Avatar/>
+      <avatar/>
     </v-app-bar>
 </template>
 

@@ -3,13 +3,13 @@
     <v-sheet>
         <v-card tile flat height ="200px"></v-card>
         <v-col>
-          <ArticleCard
+          <article-card
           v-for="item in articleCardList"
           :key = item.id
           :article = item
           :control = true
           >
-          </ArticleCard>
+          </article-card>
         </v-col>
     </v-sheet>
   </div>
@@ -49,6 +49,7 @@ export default {
   name: 'MyArticle',
   components: {
     ArticleCard
+
   }
 }
 </script>

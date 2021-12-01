@@ -2,23 +2,7 @@
   <div class="Writer" >
       <v-row>
         <v-col>
-    `     <v-card class="writer-sidebar " width="300px" flat>
-            <v-expansion-panels focusable accordion >
-              <v-expansion-panel 
-                v-for="(item,i) in 2"
-                :key="i"
-              >
-                <v-expansion-panel-header>
-                  这里是还没完成的文章缓存功能
-                </v-expansion-panel-header>
-
-                <v-expansion-panel-content>
-                  所以右边的save和preview按钮也是没用的
-                </v-expansion-panel-content>
-
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-card>
+    `     <draft-list></draft-list>
         </v-col>
 
         <v-col>
@@ -70,7 +54,7 @@
                 保存
               </v-btn>
             </v-row>
-            <v-row class="" >
+            <!-- <v-row class="" >
               <v-btn
               class="gray tile mx-auto mt-8" 
               x-large
@@ -84,7 +68,7 @@
                 </v-icon>
                 预览
               </v-btn>
-            </v-row>
+            </v-row> -->
         </v-col>
         
       </v-row>
@@ -93,7 +77,9 @@
 
 <script>
 // @ is an alias to /src
-import Editor from '@/components/Editor.vue'
+import Editor from    '@/components/Editor.vue'
+import DraftList from '@/components/DraftList.vue'
+
 // import xss from 'xss'
 export default {
   name: 'Writer',
@@ -209,17 +195,20 @@ export default {
     //   this.content = this.$refs.editor.editorData
     //   console.log(this.content)
     // },
-    save(){
-      let v = this
-      v.loadingSave = true
-      console.log("tijiaohoutai成功")
+    async save(){
+      let ret = await this.$service.article.postDraft({
+          title: this.title,
+          intro: this.intro,
+          content: this.$refs.editor.editorData,
+          abstract: this.getAbstract()
+      })
+      console.log(ret)
+      this.loadingSave = true
       setTimeout(()=>{
-        v.loadingSave = false
-      },3000)
+        this.loadingSave = false
+      },1000)
     },
-    preview() {
-      this.$msg.info(this.getAbstract())
-    },
+
     validate(){
       if(this.title === ''||this.intro === ''||this.$refs.editor.editorData === ''){
         this.$msg.info('不得为空')
@@ -243,7 +232,8 @@ export default {
 
   },
   components: {
-    Editor
+    Editor,
+    DraftList,
   }
 }
 </script>

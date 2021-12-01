@@ -78,8 +78,8 @@ export default{
                     this.$msg.success({ message: res.msg , time : 1000 })
                     window.localStorage.removeItem('token')
                     window.localStorage.setItem('token', res.data['token'])
-                    this.addUserInfo()
-                        setTimeout(() => {
+                    this.updateUserInfo()
+                    setTimeout(() => {
                         this.$router.push('/home')
                     }, 1000)
                 }
@@ -93,11 +93,12 @@ export default{
                 console.log(err)
             })
         },
-        addUserInfo () {
+        updateUserInfo () {
         this.$service.user.getInfo().then(ret => {
             let res = ret.data
             if (res.code === 200) {
-                this.$store.commit('login', res.data['userInfo'])
+                console.log(res.data)
+                this.$store.commit('updateUserInfo', res.data)
             } else {
                 this.$msg.error('获取用户信息失败')
             }

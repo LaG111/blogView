@@ -13,7 +13,8 @@ Vue.use(Vuex)
 			isLogin : false,
 			username: '',
 			// nickname: '',
-			isSuper: false
+			isSuper: false,
+			Avatar:''
 		},
 		setting:{
 			superUserList:['Admin','LunaticRed']
@@ -36,17 +37,19 @@ Vue.use(Vuex)
 		messageDel(state,index){
 			state.msgPool.splice(index,1)
 		},
-		login (state, userinfo) {
+		updateUserInfo (state,userinfo) {
 			state.userinfo.username = userinfo.username
 			state.userinfo.isLogin = true
+			state.userinfo.avatar = userinfo.avatar
 			if(state.setting.superUserList.indexOf(userinfo.username) !== -1){
 				state.userinfo.isSuper= true
 			}
-			// state.userinfo.nickname = userinfo.nickname
 		},
+		
 		logout (state){
 			state.userinfo.username = ''
 			state.userinfo.isLogin = false
+			state.userinfo.isSuper = false
 		},
 		getSetting(state,setting){
 			state.setting = setting
