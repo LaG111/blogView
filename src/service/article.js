@@ -14,16 +14,16 @@ export const postArticle = (param) => {
 }
 
 export const postDraft = (param) => {
-  return axios.post('/api/article', param)
+  return axios.post('/api/draft', param)
 }
 export const editDraft = (param) => {
-  return axios.post('/api/article', param)
+  return axios.put('/api/draft/editDraft', param)
 }
 export const listDraft = () => {
-  return axios.get('/api/article')
+  return axios.get('/api/draft/listDraft')
 }
 export const getDraft = (param) => {
-  return axios.get(`/api/article/editArticle/${param}`)
+  return axios.get(`/api/draft/${param}`)
 }
                               
 // // 上传图片

@@ -21,7 +21,7 @@
             ></v-text-field>
 
             <v-label  class="font-weight-bold">正文</v-label>
-            <Editor ref="editor" ></Editor>
+            <editor ref="editor" ></editor>
           </v-form>
         </v-card>`
         </v-col>
@@ -236,7 +236,8 @@ export default {
     DraftList,
   }
 }
-</script>
+
+    Editor</script>
 
 <style scoped>
 </style>
