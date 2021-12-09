@@ -1,5 +1,5 @@
 <template>
-  <div class="Writer" >
+  <div class="Writer" :key='$route.fullPath'>
       <v-row>
         <v-col>
     `     <draft-list></draft-list>
