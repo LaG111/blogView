@@ -1,5 +1,6 @@
 <template>
     <div class="Aricle">
+        <banner></banner>
         <v-card flat height="80px"></v-card>
         <v-col>
             <v-row justify="center" align="center">
@@ -32,6 +33,7 @@
     </div>
 </template>
 <script>
+import Banner from '../components/Banner.vue'
 export default {
     data(){
         return{
@@ -80,6 +82,7 @@ export default {
         },
     },
     components:{
+        Banner
     },
     computed:{
         showControl(){

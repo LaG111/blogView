@@ -1,9 +1,9 @@
 <template>
     <v-card 
-    class="mx-auto mt-16 px-16"
-    width="800px"
+    class="mx-auto mt-16 px-lg-16"
+    width="1000px"
     min-height='300px'
-    elevation="6"
+    elevation="16"
     @click="gotoActicle"
     >
         <v-card-title class="teal--text text-h5  ">
@@ -23,10 +23,16 @@
         <v-card-text>
             <v-row>
                 <v-col cols="4">
-                    作者: {{this.article.writer}}
+                    <span class="teal--text">
+                        作者: 
+                    </span>
+                    {{this.article.writer}}
                 </v-col>
                 <v-col cols="8">
-                    时间: {{this.article.date}}
+                    <span class="teal--text">
+                        时间: 
+                    </span>
+                    {{this.article.date}}
                 </v-col>
             </v-row>
             

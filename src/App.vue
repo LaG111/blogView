@@ -1,17 +1,18 @@
 <template>
-  <v-app>
-    <AppBar></AppBar>
+  <v-app >
+    <app-bar></app-bar>
+    
     <v-main>
       <router-view/>
     </v-main>
     <!-- <Dialog></Dialog> -->
-    <Message />
+    <message/>
   </v-app>
 </template>
 <script>  
-import Message from '@/components/Message'
-import AppBar from '@/components/AppBar.vue'
-import Dialog from '@/components/Dialog.vue'
+import Message from './components/Message.vue'
+import Dialog from './components/Dialog.vue'
+import AppBar from './components/AppBar.vue'
 
 export default {
   mounted(){
@@ -35,4 +36,6 @@ export default {
     .font-color-primary{
         color:#00695C
     }
-</style>
+
+  </style>
+

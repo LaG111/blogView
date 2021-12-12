@@ -1,7 +1,7 @@
 <template>
-  <div>    
+  <div>
+    <back-img></back-img>
     <v-sheet>
-        <v-card tile flat height ="200px"></v-card>
         <v-col>
           <article-card
           v-for="item in articleCardList"
@@ -16,7 +16,8 @@
 
 <script>
 // @ is an alias to /src
-import ArticleCard from '@/components/ArticleCard.vue'
+import ArticleCard from '../components/ArticleCard.vue'
+import BackImg from '../components/Banner.vue'
 export default {
   data(){
     return{
@@ -53,7 +54,8 @@ export default {
   },
   name: 'Home',
   components: {
-    ArticleCard
+    ArticleCard,
+    BackImg
   }
 }
 </script>

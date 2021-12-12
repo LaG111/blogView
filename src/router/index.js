@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Writer from '../views/Writer.vue'
-import Secret from '../views/Secret.vue'
-import Article from '../views/Article.vue'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import MyArticle from '../views/MyArticle.vue'
-import Account from '../views/Account.vue'
+import Home from '../pages/Home.vue'
+import Writer from '../pages/Writer.vue'
+import Secret from '../pages/Secret.vue'
+import Article from '../pages/Article.vue'
+import Login from '../pages/Login.vue'
+import Register from '../pages/Register.vue'
+import MyArticle from '../pages/MyArticle.vue'
+import Account from '../pages/Account.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,31 +21,41 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
-    // 包含换页搜索功能
+    meta:{
+      title: '首页'
+    }
   },
   {
     path: '/',
     name: 'Home',
     component: Home,
-    // 包含换页搜索功能
+    meta:{
+      title: '首页'
+    }
   },
   {
     path: '/writer',
     name: 'Writer',
-    component: Writer
-    // 写文章页面
+    component: Writer,
+    meta:{
+      title: '写'
+    }
   },
   {
     path: '/article',
     name: 'Article',
     component: Article,
-    // 包含换页搜索功能
+    meta:{
+      title: '读'
+    }
   },
   {
     path: '/myArticle',
     name: 'MyArticle',
     component: MyArticle,
-    // 包含换页搜索功能
+    meta:{
+      title: '我的文章'
+    }
   },
   {
     path: '/secret',
@@ -55,17 +65,26 @@ const routes = [
   {
     path: '/account',
     name: 'Account',
-    component:Account
+    component:Account,
+    meta:{
+      title: '账号'
+    }
   },
   {
     path:'/login',
     name:'login',
-    component:Login
+    component:Login,
+    meta:{
+      title: '登录'
+    }
   },
   {
     path:'/register',
     name:'Register',
-    component:Register
+    component:Register,
+    meta:{
+      title: '注册'
+    }
   }
 
 ]
