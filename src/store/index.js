@@ -14,11 +14,12 @@ Vue.use(Vuex)
 			username: '',
 			// nickname: '',
 			isSuper: false,
-			Avatar:''
+			Avatar:'',
 		},
 		setting:{
 			superUserList:['Admin','LunaticRed']
 		},
+		
 	  },
 	  mutations: {
 	    message(state,data) {

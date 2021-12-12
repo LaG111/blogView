@@ -1,5 +1,5 @@
 <template>
-  <div class="Writer" >
+  <div class="Writer" :key="this.$route.fullPath">
       <v-row>
         <v-col>
     `     <draft-list></draft-list>
@@ -77,7 +77,7 @@
 
 <script>
 // @ is an alias to /src
-import Editor from    '@/components/Editor.vue'
+import Editor from  '@/components/Editor.vue'
 import DraftList from '@/components/DraftList.vue'
 
 // import xss from 'xss'
@@ -196,14 +196,17 @@ export default {
     //   console.log(this.content)
     // },
     async save(){
+      if(!this.validate()){
+        return
+      }
+      this.loadingSave = true
       let ret = await this.$service.article.postDraft({
           title: this.title,
           intro: this.intro,
           content: this.$refs.editor.editorData,
           abstract: this.getAbstract()
       })
-      console.log(ret)
-      this.loadingSave = true
+      this.$msg.info('草稿保存成功')
       setTimeout(()=>{
         this.loadingSave = false
       },1000)
@@ -229,7 +232,18 @@ export default {
 
   },
   watch: {
+      $route(to,from){
+        console.log(to)
+        if(to.query.type==='edit'){
+          this.getLastVersion()
+          this.mode = 'edit'
 
+        }else{
+            this.title=''
+            this.intro= ''
+            this.content=''
+        }
+      }
   },
   components: {
     Editor,

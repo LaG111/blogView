@@ -1,5 +1,6 @@
 module.exports = {
   runtimeCompiler: true,
+
   devServer:{
     proxy:{
       '/api':{
@@ -9,5 +10,7 @@ module.exports = {
         changeOrigin:true,
       }
     }
-  }
+  },
+
+  assetsDir: 'static'
 }
