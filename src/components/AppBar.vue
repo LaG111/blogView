@@ -49,7 +49,7 @@ export default {
     handleScroll() {
       if (window.pageYOffset >= 0 && window.pageYOffset <300) {
         this.barColor = 'transparent'
-        this.elevation = '0'
+        this.elevation = '6'
       }else{
         this.barColor = 'teal darken-3'
         this.elevation = '6'

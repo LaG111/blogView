@@ -23,20 +23,15 @@ Vue.use(Vuex)
 	  },
 	  mutations: {
 	    message(state,data) {
-	      	state.msgPool.push(data)
-			  if(data.time){
-				  setTimeout(() => {
-					state.msgPool.splice(state.msgPool.indexOf(data),1)
-					// 用shift会导致先出的先摧毁，而不是当前这个
-				  }, data.time);
-			  }
+			state.msgPool.push(data)
+
 				
 	      //将消息添加到消息列表
 	      //清除消息
 	    },
 		// 关掉一个消息
-		messageDel(state,index){
-			state.msgPool.splice(index,1)
+		messageDel(state){
+			state.msgPool.pop()
 		},
 		updateUserInfo (state,userinfo) {
 			state.userinfo.username = userinfo.username

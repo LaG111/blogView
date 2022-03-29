@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../pages/Home.vue'
-import Writer from '../pages/Writer.vue'
-import Secret from '../pages/Secret.vue'
-import Article from '../pages/Article.vue'
-import Login from '../pages/Login.vue'
-import Register from '../pages/Register.vue'
-import MyArticle from '../pages/MyArticle.vue'
-import Account from '../pages/Account.vue'
+const Home =  ()=>import('../pages/Home.vue') 
+const Writer = ()=>import('../pages/Writer.vue')
+const Secret = ()=>import('../pages/Secret.vue') 
+const Article = ()=>import('../pages/Article.vue') 
+const Login = ()=>import('../pages/Login.vue') 
+const Register = ()=>import('../pages/Register.vue') 
+const MyArticle = ()=>import('../pages/MyArticle.vue') 
+const Account = ()=>import('../pages/Account.vue') 
 Vue.use(VueRouter)
-
 const routes = [
   //todoList:
   // 单独页面写博客

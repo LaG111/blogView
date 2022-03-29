@@ -10,9 +10,9 @@
   </v-app>
 </template>
 <script>  
-import Message from './components/Message.vue'
-import Dialog from './components/Dialog.vue'
-import AppBar from './components/AppBar.vue'
+const Message = ()=>import('./components/Message.vue')
+const Dialog = ()=> import('./components/Dialog.vue')
+const AppBar = ()=> import('./components/AppBar.vue')
 
 export default {
   mounted(){
